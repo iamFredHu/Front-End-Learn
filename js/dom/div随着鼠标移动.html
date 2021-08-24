@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div with mouse</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+</body>
+<script type="text/javascript">
+    // 使DIV可以跟随鼠标移动
+    document.onmousemove = function (event) {
+        // clientX clientY 总是相对于可见窗口
+        var left = event.pageX - 50;
+        var top = event.pageY - 50;
+
+        box1.style.left = left + "px";
+        box1.style.top = top + "px";
+    }
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>其他样式相关属性</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border: 10px solid #0093E9;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">点一下</button>
+
+<div id="box1"></div>
+<script type="text/javascript">
+    // 点击按钮以后修改box1的大小
+
+    // box1
+    var box1 = document.getElementById("box1");
+    // 绑定按钮
+    var btn1 = document.getElementById("btn1");
+    btn1.onclick = function (){
+        // 可见高度和宽度 返回值不带px 包括内容区和内边距 read-only
+        alert(box1.clientHeight);
+        alert(box1.clientWidth);
+        alert(box1.offsetWidth);
+        alert(box1.offsetHeight); // 元素的整个大小 border包括在内了
+
+    };
+
+
+</script>
+</body>
+</html>

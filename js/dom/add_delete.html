@@ -66,11 +66,66 @@
     // 获取所有的超链接
     var allLink = document.getElementsByTagName("a");
 
+    // 删除员工
     for (let i = 0; i < allLink.length; i++) {
         allLink[i].onclick = function () {
+            // 获取当前所在tr
+            var tr = this.parentNode.parentNode;
+            // 确认是否删除（confirm带有确认和取消按钮）
+            // 返回值 true/false
+            // 获取要删除的员工的名字
+            var nameDelete = tr.firstElementChild.innerHTML;
+            if (confirm("是否真的要删除" + nameDelete + "?")) {
+                // 点击超链接以后需要点击所在的一行 点谁 this就是谁
+                // 获取父节点，remove子节点（自杀）
+                tr.parentNode.removeChild(tr);
+            }
             // 点击超链接以后，超链接会跳转页面
+            // 通过return false 来取消默认的跳转行为
+            return false;
         };
     }
+
+    // 添加员工
+    var subBtn = document.getElementById("addEmpbutton");
+    subBtn.onclick = function () {
+        // 获取table父节点
+        var employeeTable = document.getElementById("employeeTable");
+        // 浏览器会给table增加一个tbody子节点,要将新增的tr加入tbody中
+        var tbody = employeeTable.getElementsByTagName("tbody")[0];
+        // 创建一个tr
+        var tr = document.createElement("tr");
+        // 获取input中的数据
+        var input = document.getElementsByTagName("input");
+        console.log(input);
+        // 将input中的数据依次放入tr
+        for (var i = 0; i < input.length; i++) {
+            var td = document.createElement("td");
+            // 获取文本值放入td中
+            td.innerHTML = input[i].value;
+            tr.appendChild(td);
+            console.log(tr);
+        }
+        var td = document.createElement("td");
+        var a = document.createElement("a");
+        a.innerHTML = "delete";
+        a.href = "#";
+        td.appendChild(a);
+        tr.appendChild(td);
+        // 需要为新添加的a添加一次单击绑定函数
+        a.onclick = function () {
+            var tr = this.parentNode.parentNode;
+            console.log(tr)
+            if (confirm("是否删除" + tr.firstElementChild.innerHTML + "吗?")) {
+                tr.parentNode.removeChild(tr);
+            }
+            return false;
+        }
+        tbody.appendChild(tr);
+
+    };
+
+
 </script>
 
 <style>
