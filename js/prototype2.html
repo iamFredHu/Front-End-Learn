@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // 创建每一个函数，解析器都会向函数中添加一个属性prototype
+        // 这个属性对应的对象就是原型对象
+
+
+        function Person(personalName, personalAge, personalGender) {
+
+        }
+        Person.prototype.name = "我是原型中的名字";
+
+        var per = new Person();
+        console.log(per.name);
+        console.log("name" in per); // true
+        // 使用in检查对象中是否含有某个属性中时，如果对象中没，原型中有，也会返回true
+        console.log(per.hasOwnProperty("name"));
+        // false 检查对象中自身是否有这个属性（属性要加引号，别忘了） 自身有才返回true
+        console.log(per.hasOwnProperty("hasOwnProperty")); // false
+        console.log(per.__proto__.hasOwnProperty("hasOwnProperty")); // false
+        // 原型里也没有这个方法 原型对象也是对象，其原型对象也有proto
+        console.log(per.__proto__.__proto__.hasOwnProperty("hasOwnProperty"))
+        // true
+        console.log(per.__proto__.__proto__.__proto__);// null
+        // Object 对象的原型没有原型
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

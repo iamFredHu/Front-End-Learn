@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 可以将js代码编写到外部js文件中 -->
+    <script type="text/javascript" src="hello.js"></script>
+    <!-- 可以在不同页面中同时引用，也可以利用浏览器的缓存机制 （多用）
+        <script>标签一旦用于引入外部文件，就不能（在该标签中）使用内部代码了，
+        即使写了也会被浏览器忽略。解决方案：使用一个新的标签
+    -->
+
+    <script type="text/javascript">
+        // 默认type就是text/javascript 可以省略
+        // 可以将代码写在script标签中
+
+        // 使浏览器弹出一个警告框
+        // alert("Hello2");
+
+        // 在计算机中输入一个内容 在body中输出一个内容
+        // document.write("Hello,World");
+
+        // 向控制台输出一个内容（F12 Console）
+        // console.log("test text");
+
+    </script>
+
+</head>
+<body>
+<!-- JS代码可以在标签的onclick属性中 注意onclick 双引号和单引号的使用情况 -->
+<button onclick="alert('648充值成功')">充值按钮</button>
+<a href="javascript:alert('328充值成功')">充值链接</a>
+<!-- 结构与行为耦合 不方便维护，不推荐使用 -->
+</body>
+</html>

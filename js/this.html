@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+    <script type="text/javascript">
+        // 解析器在调用函数时每次都会向函数内部传递一个隐含的参数
+        // 隐含参数就是this（浏览器传进来的，也是参数，指向一个对象，函数执行的上下文对象）
+        // 根据函数调用方式不同，this指向不同的对象
+        var name = "全局name"
+        function fun(){
+            // console.log(a,b);
+            console.log(this.name); // window
+        }
+
+        fun(); // window
+        var obj = {
+            name:'objName',
+            sayName:fun
+        }
+
+        var obj2 = {
+            name:'obj2Name',
+            sayName:fun
+        }
+
+        // obj.sayName() fun()
+        console.log(obj.sayName() == fun()); // true
+        obj.sayName(); // object(obj)
+        obj2.sayName();
+        fun(); // window
+        // 以函数形式调用，this就是window
+        // 以方法形式调用，this就是这个方法
+        // 即谁调用的，this就是谁（函数可以理解为window调用的）
+
+        // this根据调用情况会发生变化
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

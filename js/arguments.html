@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+// 在调用函数时，浏览器每次都会传递两个隐含参数
+// 1.函数的上下文对象 this
+// 2.封装实参的对象 arguments（类数组对象，也可以通过索引操作数据，获取长度等）
+// 调用函数时，传递的实参都会在arguments中保存
+
+function fun(a,b,c,d){
+    console.log(arguments);
+    console.log(Array.isArray(arguments)); // false
+    console.log(arguments.length); // 传递的实参的数量
+    console.log(arguments.callee); // 调用谁,callee就是谁
+    console.log(arguments.callee == fun); //
+}
+// 所以即使不定义形参，也可通过arguments来使用实参
+// arguments[0] 形参第一个 类推
+// callee 属性 对应一个函数队
+fun(1,2,3,4);
+
+</script>
+<body>
+
+</body>
+</html>

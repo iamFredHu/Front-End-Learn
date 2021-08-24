@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#app {
+    width: 300px;
+    /* border 粗细 样式 颜色 */
+    border: 1px solid #0093E9;
+    margin: 0 auto;
+    /* 外边距——居中 上下0 左右居中*/
+}
+
+form {
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+input[id] {
+    border: 1px solid black;
+}
+
+div[id=usernamebox] {
+    padding: 10px;
+}
+
+div[id=pwdbox] {
+    padding: 10px;
+}
+
+h2 {
+    font-size: 16px;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    margin: 0;
+    /* 去除上下边距 */
+}

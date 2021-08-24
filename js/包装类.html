@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装类</title>
+    <script type="text/javascript">
+        // // 通过3个包装类可以将基本类型数据转换为对象
+        // // String() Number() Boolean()
+        // var num = new Number(3);
+        // var num2 = new Number(3);
+        // console.log(num);
+        // console.log(typeof num); // object
+        //
+        // var str = new String("hello");
+        // console.log(str);
+        // console.log(typeof str); // object
+        //
+        // num.hello = "sdskf";
+        // console.log(num === num2); // false 对象比较内存地址
+        // // 实际应用中不会使用基本数据类型的对象 比较时会带来不可预期的结果
+
+        // 字符串的相关方法
+        var str = "Hello JavaScript Hello";
+        // 在底层，字符串以数组形式保存
+        console.log(str[0]); // H
+        // 操作方法类似数组
+        console.log(str.length);
+
+        // charAt 返回指定位置的字符
+        console.log(str.charAt(1)); // e
+
+        // charCodeAt(); // 返回对应的Unicode编码
+        console.log(str.charCodeAt(1)); // 101
+
+        // fromCharCode() 根据字符编码获取字符
+        console.log(String.fromCharCode(101)); // e
+
+        // concat() 连接两个或者多个字符串
+        console.log(str.concat(" Hello Python")); // 对原字符串没有影响
+
+        // indexOf() 检索一个字符串是否有指定内容
+        console.log(str.indexOf("h"));// -1 指没有该字符
+        // 如果有该字符，返回第一次出现的位置的index（多个也只返回一个）
+        console.log(str.indexOf("l",3)); // 第二个参数，指定开始查找的位置
+
+        // lastIndexOf()
+        console.log(str.lastIndexOf("H")); // 17 用法和indexOf一样，不同的是indexOf是
+        // 从前往后，last indexOf 是从前往后找
+
+        // slice() 从字符串中截取指定内容
+        console.log(str.slice(0,5)); // 原数组不会被影响 左闭右开 第二个参数可以省略
+
+        // substring() 类似slice
+        // 参数：包括开始位置，不包括结束位置
+        // 不同的是这个方法不能接收负值作为参数，传递了一个负值 默认使用0
+        // 自动调整参数位置，第二个参数小于第一个，自动交换
+
+        // substr() 第一个参数 开始位置 第二个参数 长度
+
+        // split() 将字符串拆分为一个数组
+        str = "abc,sds,rer,wqs";
+        var arr1 = str.split(","); //需要一个字符串作为参数，将会根据该字符串进行拆分
+        console.log(arr1);
+        arr1 = str.split("");
+        console.log(arr1); // 空字符串 则每个字符都会被拆分
+
+        str="abcdefg";
+
+        console.log(str.toUpperCase()); // 大写
+        console.log(str.toLowerCase()); // 小写
+    </script>
+</head>
+<body>
+
+</body>
+</html>

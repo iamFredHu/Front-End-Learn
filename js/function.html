@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+    <script type="text/javascript">
+        /*
+         * 函数，也是对象
+         */
+
+        document.write("<h1>你好</h1>"); //也是一个对象
+
+        // 创建一个函数对象 可以将要封装的代码以字符串的形式传递 （很少使用）
+        var fun1 = new Function("console.log('1');");
+        console.log(typeof fun1);
+        // 调用函数
+        fun1();
+
+        // 函数声明
+        function fun2()
+        {
+            console.log("test");
+        }
+
+        fun2();
+
+        // 匿名函数 无法用，但是可以让变量等于它(也是创建函数的方法）
+        var fun3 = function (a,b){
+            console.log(a+b);
+
+            return a+b;
+        }
+        var a = 111;
+        var b = 222;
+        fun3(a,b);
+
+        // 调用时不会检查实参的类型，需要注意是否有可能会接收到非法参数，需要进行类型检查
+        // 调用函数时，解析器也不会检查实参的数量
+        // fun(a,b,b); 多于 - 报错
+        fun3(a); // 少于 - undefined
+
+        var c = fun3(a,b);
+        console.log(c);
+
+        function fun4(){
+            console.log("hello4");
+            function fun5(){
+                console.log("hello5");
+            }
+            return fun5;
+        }
+
+        fun4();// 可以这样
+        // fun5(); 不可以这样
+        var d = fun4();
+        fun4()(); // √
+
+        // 立即执行函数 函数对象 函数定义完了立即被调用
+        (function(){
+            console.log("立即执行函数");
+        })();
+
+        (function(a,b){
+            console.log("a+b="+(a+b));
+        })(12,34);
+
+        // 方法
+        var obj1 = new Object();
+        obj1.name = "Fred";
+        obj1.age = 22;
+
+        // 对象的属性值可以是任何数据类型，比如说可以是个函数
+        obj1.sayName = function(){
+            console.log(obj1.name);
+        }
+
+        // 调对象的（方法）
+        obj1.sayName(); // 函数变成对象的属性 称其为对象的方法，调用函数就是调用对象的方法。
+        // 调函数
+        fun4();
+
+        //本质没区别 知识名字上有区别
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

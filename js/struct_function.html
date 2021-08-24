@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+    <script type="text/javascript">
+        // 创建一个构造函数，专门用来创建Person对象
+        // 构造函数就是普通函数，习惯上首字母大写，创建方式和普通函数没区别
+
+        function Person(personalName, personalAge, personalGender) {
+            this.name = personalName;
+            this.age = personalAge;
+            this.gender = personalGender;
+            // 注意这里没有return这个obj
+            this.sayName = function () {
+                alert("全民制作人们大家好我是" + this.name);
+            }
+        }
+        // 构造函数每执行一次，都会创建一个新的sayName方法（重复，占用资源）
+        // 可以让所有对象共享同一个方法
+        // 方法在全局作用域当中定义
+        function Person2(personalName, personalAge, personalGender) {
+            this.name = personalName;
+            this.age = personalAge;
+            this.gender = personalGender;
+            // 注意这里没有return这个obj
+            this.sayName = funSayname;
+        }
+
+        // 污染了全局作用域的命名空间
+        // 【而且定义在全局作用域中 很不安全】
+        function funSayname () {
+            alert("全民制作人们大家好我是" + this.name);
+        }
+
+        var per = new Person2("Fred",18,"Male");
+        per.sayName();
+
+
+
+
+        // function Dog(dogName, dogAge, dogGender) {
+        //     this.name = dogName;
+        //     this.age = dogAge;
+        //     // 注意这里没有return这个obj
+        // }
+
+        // var per1 = Person();
+        // var per2 = new Person("Fred",18,"Male");
+        // per2.sayName();
+        // var dog = new Dog();
+        // //构造函数 和 普通函数的区别，在于调用的时候有没有new
+        // console.log(per1); // undefined
+        // console.log(per2); // Person类
+        // console.log(dog); // Dog类
+        // // Person类、Dog类
+        // // 使用一个构造函数创建的对象称为该类的实例或者该构造函数的实例
+        //
+        // // 构造函数会将新建的对象作为返回值返回
+        // // 过程：立刻创建一个新的对象->将新建的对象设置为函数的this->立刻执行函数中的代码
+        // // ->将新建的对象作为函数的返回值返回
+        // console.log(per1 instanceof Person); // false
+        // // 检查一个对象是否是某个类的实例
+        // console.log(per2 instanceof Person); // true
+        //
+        // console.log(dog instanceof Dog); // true
+        //
+        // console.log(dog instanceof Object); // true
+        // // 任何对象都是Object的后代（instanceof 都会返回true）
+        //
+        // // 构造函数 new this 不写return
+        // // 加new是构造函数，不加就是普通函数
+    </script>
+</head>
+<body>
+
+</body>
+</html>

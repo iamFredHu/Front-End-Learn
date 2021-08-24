@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型 prototype</title>
+    <script type="text/javascript">
+        // 创建每一个函数，解析器都会向函数中添加一个属性prototype
+        // 这个属性对应的对象就是原型对象
+
+
+        function Person(personalName, personalAge, personalGender) {
+            this.name = personalName;
+            this.age = personalAge;
+            this.gender = personalGender;
+        }
+
+        Person.prototype.a = 123;
+        Person.prototype.sayHello = function() {
+            alert("全民制作人们大家好我是" + this.name);
+        }
+
+        // 函数作为普通函数调用，prototype没有任何作用
+        // 函数作为构造函数调用时，
+        // 它所创造的对象中都会有一个隐含的属性指向该构造函数的原型对象
+        // 浏览器 通过 __proto__来进行访问
+
+        // 通过这个构造函数创造的所有对象的__proto__，都会指向这个类的原型对象
+        // 同一个类的所有实例，都可以访问这个原型对象
+        var per1 = new Person("Fred", 18, "Male");
+        var per2 = new Person("Lee", 19, "Female");
+        per1.a = "我是per1中的a";
+
+        console.log(per1.__proto__.a); // 123
+        console.log(per1.a); // 我是per1中的a
+        console.log(per2.a); // 123
+        per1.sayHello(); //所有对象都可以访问到，而且不会污染全局
+        per2.sayHello();
+        //当我们访问对象的属性或者方法时，会先在对象自身中寻找，
+        // 如果找不到，去prototype原型对象中去寻找
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

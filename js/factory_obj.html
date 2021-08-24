@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obj</title>
+    <script type="text/javascript">
+        // var obj = {
+        //     name:"Fred",
+        //     age:22,
+        //     gender:"Male",
+        //     sayName:function (){
+        //         alert(this.name);
+        //     }
+        // };
+        //
+        // var obj2 = {
+        //     name:"Lee",
+        //     age:23,
+        //     gender:"Male",
+        //     sayName:function (){
+        //         alert(this.name);
+        //     }
+        // };
+        //
+        // var obj3 = {
+        //     name:"Jee",
+        //     age:24,
+        //     gender:"Male",
+        //     sayName:function (){
+        //         alert(this.name);
+        //     }
+        // };
+        //
+        // obj.sayName();
+        // obj2.sayName();
+        // obj3.sayName();
+
+        // 批量创建对象
+        function createInfo(personalName,personalAge,personalGender){
+            // 创建一个人新的对象
+            var obj = new Object();
+            obj.name = personalName;
+            obj.age = personalAge;
+            obj.gender = personalGender;
+            obj.sayName = function ()
+            {
+                alert(this.name);
+            }
+
+            return obj;
+        }
+
+        var obj = createInfo("Fred",18,"Male");
+        obj.sayName();
+
+        // 创建的构造函数都是Object，创建的对象类型都是Object类型，
+        // 导致无法区分出多种不同类型的对象
+
+
+    </script>
+<body>
+
+</body>
+</html>

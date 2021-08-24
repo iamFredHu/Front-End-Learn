@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <p id="imgInfo"></p>
+    <img src="img/%20(1).png" alt=" "/>
+    <button id="lastBtn">上一张</button>
+    <button id="nextBtn">下一张</button>
+</div>
+<script type="text/javascript">
+    var lastBtn = document.getElementById("lastBtn");
+    var nextBtn = document.getElementById("nextBtn");
+
+    // 获取img标签
+    var imgUrl = document.getElementsByTagName("img")[0];
+    // 获取p标签
+    var pUrl = document.getElementById("imgInfo");
+
+    // 创建一个数组用来保存图片路径
+    var imgArr = ["img/%20(1).png", "img/%20(2).png", "img/%20(3).png", "img/%20(4).png", "img/%20(5).png"]
+
+    // 创建一个变量用来显示图片索引
+    var imgIndex = 0;
+
+    // 文字初始化
+    pUrl.innerText = "一共有"+imgArr.length+"张图片"+"，当前为第"+(imgIndex+1)+"张";
+
+    lastBtn.onclick = function () {
+        imgIndex--;
+        while (imgIndex < 0) {
+            imgIndex += imgArr.length;
+        }
+        imgUrl.src = imgArr[imgIndex];
+        pUrl.innerText = "一共有"+imgArr.length+"张图片"+"，当前为第"+(imgIndex+1)+"张";
+    }
+
+    nextBtn.onclick = function () {
+        imgIndex = (imgIndex + 1) % imgArr.length;
+        imgUrl.src = imgArr[imgIndex];
+        pUrl.innerText = "一共有"+imgArr.length+"张图片"+"，当前为第"+(imgIndex+1)+"张";
+    }
+
+    // childNodes属性会获取包括文本节点在内的所有节点
+    // 根据DOM标签间的空白也会当成空白文本节点
+
+    // children - 当前元素的所有子元素（不会包括空白文本）
+</script>
+</body>
+</html>

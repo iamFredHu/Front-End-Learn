@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // 一元运算符：正号对Number没有影响 负号取反
+        // 【对于非number类型，会先转换为number再运算】
+
+        var a = true;
+        a = -a;
+
+        console.log(a); // -1
+        console.log(typeof a); // number
+
+        a = "123";
+        a = -a;
+
+        console.log(a); // -123
+        console.log(typeof a); // number
+
+        a = 1;
+        console.log(a++); // 1 a++ 先输出再+1
+        a = 1;
+        console.log(++a); // 2
+
+        // 逻辑运算符
+        a = true;
+        var b = false;
+        a = !a;
+        console.log(a);
+
+        a = true;
+
+        var c = a && b;
+        console.log(c);
+
+        c = a || b;
+        console.log(c);
+
+        // 非布尔值进行与或运算时，会先将其转换为布尔值，然后再运算
+        // 【注意，会返回原值】
+        a = 0;
+        b = 2;
+        c = a && b;
+        console.log(c); //【&& 与运算，都为true返回后边的，都为false返回前面的】
+        c = a || b;
+        console.log(c); //【|| 或运算，第一个值为true，直接返回第一个值，第一个为false，看第二个】
+
+        // Unicode 编码表
+        console.log("\u0026");
+
+        console.log("hello" == true); // false 都转换成number比较了
+        // 进行了自动的类型转换（当类型不同时会进行自动类型转换，转换为相同类型再比较）
+
+        // 条件运算符（三元运算符）
+        // 条件表达式?语句1:语句2;
+
+        var str1;
+        var d = 5;
+        d > 10?str1=">10":str1="<=10";
+        console.log(str1);
+
+
+        // if语句（略）
+        // 条件分支语句
+        switch(d){
+            case 5:
+                console.log("5");
+                break;
+            case 10:
+                console.log("5");
+                break;
+            default:
+                console.log("other");
+                break;
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

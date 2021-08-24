@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom</title>
+</head>
+<body>
+<p class="box1">Hello</p>
+<h1 class="box1">Hello</h1>
+<div class="box2">
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+</div>
+<div></div>
+<script type="text/javascript">
+    // 获取body标签
+    var bodyLabel = document.body;
+    console.log(bodyLabel);
+
+    // 获取HTML标签
+    var htmlLabel = document.documentElement;
+    console.log(htmlLabel);
+
+    // all
+    console.log(document.all);
+    // 所有的元素 已经被弃用
+
+    // class
+    console.log(document.getElementsByClassName("box1"));
+
+    // 选择box2中的div的方法 -- 选择器的字符串作为参数，可以根据一个CSS选择器来查询元素节点对象
+    // 该方法只会返回唯一一个元素
+    console.log(document.querySelector(".box2 div"));
+    // all
+    console.log(document.querySelectorAll(".box2 div"));
+    // 返回三个
+
+    // 即使符合条件的元素只有一个 也会返回NodeList
+</script>
+</body>
+</html>

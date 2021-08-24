@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <tittle>绝对定位</tittle>
+    <style>
+        div {
+            margin: 10px;
+            padding: 5px;
+            font-size: 12px;
+            line-height: 25px;
+        }
+
+        #father{
+            border: 1px solid blue;
+            position: relative;
+        }
+
+        #first{
+            border: 1px dashed brown;
+            background-color: brown;
+        }
+
+        #second{
+            border: 1px dashed grey;
+            background-color: grey;
+            position: absolute;
+            /* 父级元素存在定位，则相对于父级元素偏移
+                父级元素不存在定位，相对于浏览器边框偏移
+                在父级元素范围内移动，原来位置不会被保留
+                */
+        }
+
+        #third{
+            border: 1px dashed orange;
+            background-color: orange;
+            position: fixed;
+            top:120px;
+        }
+
+        #fourth{
+            border: 1px dashed yellow;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="father">
+        <div id="first">111</div>
+        <div id="second">222</div>
+        <div id="third">333</div>
+        <div id="fourth">444</div>
+    </div>
+</body>
+
+</html>

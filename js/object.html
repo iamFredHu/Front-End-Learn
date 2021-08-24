@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+    <script type="text/javascript">
+        /* 对象 Object
+         * 回顾：JS中的数据类型
+         * String Number Boolean Null Undefined 基本数据类型
+         * Object 引用数据类型
+         *
+         * 复合数据类型
+         *
+         * 分类：1、内建对象：由ES标准中定义的对象，任何ES实现中都可以使用
+         * 例如：Math String Number Boolean……
+         * 2、宿主对象 由JS运行环境提供的对象（浏览器）
+         * BOM、DOM（浏览器对象模型和文档对象模型）
+         * 3、自定义对象
+         * 由开发人员自己创建的对象
+         */
+
+        // 创建对象
+        // 使用new 关键词调用的函数，是构造函数（constructor）
+        var obj1 = new Object();
+
+        // 向对象中添加属性
+        // 语法：对象.属性名=属性值
+        obj1.name = "Fred";
+        obj1.money = 0;
+        console.log(obj1);
+
+        console.log(typeof obj1.name); // String
+        obj1.name = "Lee"; // 直接修改
+        console.log(obj1.name);
+
+        // 删除对象的某一属性
+        delete obj1.money;
+        console.log(obj1);
+
+        // 属性名不强制要求遵守标识符的规范，但尽量遵守规范，特殊属性名不能用.操作
+        var obj2 = new Object();
+        obj2.name = "Alice";
+        obj2["money"] = 456; // 注意引号
+        console.log(obj2.money); // OK 结果为456
+
+        var n = "money";
+        console.log(obj2[n]); // 用的很多，[]内写变量，灵活
+
+        // 属性值可以是任意的数据类型，甚至也可以是一个对象
+        var obj3 = new Object();
+        obj3.nameloop = obj2;
+
+        console.log(obj3.nameloop["name"]);
+        console.log(obj3.nameloop.money);
+        // 写法仍然可以正常显示
+        console.log(obj3);
+
+        // 对象中是否含有某个属性 —— in 运算符
+        // 检查一个对象中是否含有指定的属性 有则返回true 没有则返回false
+        // "属性名" in 对象
+        var aa = "name" in obj2;
+        console.log(aa); // true
+
+        // 基本和引用数据类型
+        // 基本数据类型保存的是值，引用数据类型保存的是值的地址
+
+        var obj4 = new Object();
+        obj4.name = "Fred";
+
+        var obj5 = obj4;
+
+        obj4.name = "hello";
+        console.log(obj4.name);
+        console.log(obj5.name);
+
+        // 都改了 -> 引用数据类型 为什么要叫“引用”这个词 同一个对象！
+        // 栈内存和堆内存 基本数据类型直接在栈内存中存储
+        // 对象保存在堆内存中 没有名字 而是内存地址
+        // 每创建一个新的对象，就会在堆内存中开辟出一个新的空间
+        obj5 = null;
+        console.log(obj4); // 不变
+        console.log(obj5); // null
+
+        var obj6 = new Object();
+        var obj7 = new Object();
+        obj6.name = "ni";
+        obj7.name = "ni";
+
+        console.log(obj6 == obj7); // false
+        obj7 = obj6;
+        console.log(obj6 == obj7); // true
+
+        // 比较基本数据类型 比较值
+        // 比较引用数据类型 比较对象的内存地址
+        // 值相同 地址不同 仍然不相等（只看内存地址，别的不看）
+
+        // 利用字面量创建一个对象
+        var obj8 = {};
+        console.log(obj8);
+        obj8.name = "Sun";
+
+        // 使用对象字面量可以在创建对象时直接指定对象中的属性 (特殊名字——加引号）
+        var obj9 = {
+            name:"Li",
+            money:100,
+            gender:"Male",
+            "123":345,
+            test:{name:"Fred",age:18} //可以嵌套
+        };
+
+        console.log(obj9);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

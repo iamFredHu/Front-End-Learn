@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    // Date 日期
+    var d = new Date();
+    console.log(d); // Sun Aug 22 2021 22:47:34 GMT+0800 (中国标准时间)
+
+    // 指定日期
+    d = new Date("08/22/2022 12:23:23");
+    console.log(d); // Mon Aug 22 2022 12:23:23 GMT+0800 (中国标准时间)
+
+    d = new Date();
+    // JS Date相关方法
+    var d2=d.getDate();
+    console.log(d2); // 22 getDate()方法获取当前对象的日
+    d2 = d.getDay();
+    console.log(d2); // 周日是0
+    d2 = d.getHours();
+    console.log(d2); // 22点
+    d2 = d.getMonth();
+    console.log(d2); // 7 -> 8月 0~11 注意加1
+
+    d2 = d.getTime();
+    console.log(d2); // 1629644952727 时间戳 UTC 1970/1/1 0:00 毫秒数
+
+    // 注意默认的Date UTC+8 计算时要考虑UTC的问题
+
+    // 获取当前的时间戳
+
+    var time = Date.now();
+    console.log(time); // 也是时间戳
+
+</script>
+<body>
+
+</body>
+</html>
