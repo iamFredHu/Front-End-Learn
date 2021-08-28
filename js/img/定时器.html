@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style>
+        .b1{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .b2{
+
+            height: 200px;
+            background-color: #85FFBD;
+            background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+        }
+    </style>
+    <script type="text/javascript">
+        // 定时调用
+        window.onload = function () {
+            // var count = document.getElementById("count");
+            //
+            // var number = 1;
+            //
+            // // 定时器有一个Number类型的返回值 这个数字是定时器的唯一标识
+            // var timer = setInterval(function () {
+            //     count.innerText = ++number;
+            //     if (number === 50) {
+            //         // clearInterval()可以关闭定时器
+            //         clearInterval(timer);
+            //     }
+            // }, 100);
+
+            // 图片定时自动切换
+            var imgLabel = document.getElementById("img1");
+            var imgUrl = ["%20(1).png", "%20(2).png", "%20(3).png", "%20(4).png", "%20(5).png"];
+            var currentIndex = 0;
+
+            setInterval(function () {
+                currentIndex++;
+                imgLabel.src = imgUrl[currentIndex % imgUrl.length];
+            }, 2000);
+
+            // 延时调用
+            setTimeout(function () {
+            }, 3000);
+            // 不是立即执行，而是隔一段时间执行，而且只会执行一次
+
+            var btn1 = document.getElementById('btn1');
+            var box1 = document.getElementById('box1');
+
+            btn1.onclick = function(){
+                // 这种方式修改 box1样式 每修改一个样式，浏览器就需要重新渲染一个页面（性能差）
+                // // 修改多个样式时不太方便·
+                // box1.style.width = "200px";
+                // box1.style.height = "200px";
+                // box1.style.backgroundColor = "#0093E9";
+                // box1.style.backgroundImage = "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)";
+
+                // 一行代码改多个样式
+                box1.className += ' b2';
+            }
+        }
+    </script>
+</head>
+<body>
+<img id='img1' src="%20(1).png"/>
+<br />
+<button id="btn1">点击按钮以后修改box的样式</button>
+<div id="box1" class="b1"></div>
+</body>
+</html>

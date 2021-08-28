@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #box2 {
+            background-color: #D9AFD9;
+            background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 200px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+
+</div>
+<div id="box2">
+
+</div>
+</body>
+<script type="text/javascript">
+    // 拖拽box1元素
+    var getBox1 = document.getElementById("box1");
+    // 1.当鼠标在所拖拽的元素下按下时，开始拖拽 onmousedown
+    // 2.当鼠标移动时，被拖拽元素跟随鼠标移动 onmousemove
+    getBox1.onmousedown = function (event) {
+        // 点的时候，求出鼠标位置
+        var offsetLeft = event.clientX - box1.offsetLeft;
+        var offsetTop = event.clientY - box1.offsetTop;
+        // 为box1绑定鼠标按下事件
+        document.onmousemove = function (event) {
+            // 修改box1的位置
+
+            // 获取鼠标坐标
+            var left = event.clientX - offsetLeft;
+            var top = event.clientY - offsetTop;
+
+            box1.style.left = left + "px";
+            box1.style.top = top + "px";
+        };
+        // 3.当鼠标松开时，被拖拽元素固定在当前位置 onmouseup
+        // 需要绑定document，不能给box1
+        document.onmouseup = function () {
+            // 取消document的onmousemove事件
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+        return false;
+    };
+    getBox1.onmousewheel = function (event) {
+        // 向上滚，正值 向下滚，负值
+        if (event.detail < 0) {
+            alert("up");
+        } else {
+            alert("down");
+        }
+    };
+
+    // 键盘控制div1的移动
+    document.onkeydown = function (event) {
+        if (event.key == "Enter") {
+            alert("111");
+        }
+    };
+
+
+</script>
+</html>
