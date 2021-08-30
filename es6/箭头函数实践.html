@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数实践</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #5588aa;
+        }
+    </style>
+</head>
+<body>
+<div id="ad">
+</div>
+<script>
+    // 点击div后 2s 颜色变为粉色
+    let ad = document.getElementById("ad")
+    // 绑定事件
+    ad.addEventListener("click", function () {
+        // // 保存 this 的值
+        // let _this = this
+        // setTimeout(function(){
+        //     // 这里的this指向了window
+        //     _this.style.background = 'pink'
+        // },2000)
+
+        // 接下来改用箭头函数 this指向函数声明的时候所在作用域的this，而这时的this指向ad
+        setTimeout(() => {
+            this.style.background = 'pink'
+        }, 2000)
+    })
+
+    // 从数组中返回偶数的元素
+    const arr = [1, 6, 9, 10, 100, 25]
+    const result = arr.filter(item => item % 2 === 0) // 6 10 100
+    console.log(result)
+</script>
+</body>
+</html>
