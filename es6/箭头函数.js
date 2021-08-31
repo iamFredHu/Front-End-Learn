@@ -46,3 +46,6 @@ var maxSubArray = function (nums) {
     }
     return maxSum
 };
+
+// 箭头函数适合与this无关的回调 如定时器、数组的方法回调等
+// 不适合与this有关的回调， 事件的回调、对象的方法等
